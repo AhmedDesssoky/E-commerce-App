@@ -45,10 +45,9 @@ next-env.d.ts
 *.pem
 .turbo
 
-# local Cursor agent skills & rules
+# local Cursor / agent config
 .agents/
-.cursor/rules/
-.cursor/skills/
+.cursor/
 skills-lock.json
 .claude/
 .opencode/
