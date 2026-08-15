@@ -2,7 +2,13 @@
   "mcpServers": {
     "next-devtools": {
       "command": "npx",
-      "args": ["-y", "next-devtools-mcp@latest"]
+      "args": [
+        "-y",
+        "next-devtools-mcp@latest"
+      ]
+    },
+    "reui": {
+      "url": "https://mcp.reui.io/api/mcp"
     }
   }
 }
