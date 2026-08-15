@@ -17,8 +17,9 @@
   --token-success: #0f7b4a;
   --token-scrim: rgb(26 23 20 / 40%);
 
-  /* Type — IBM Plex Sans + IBM Plex Sans Arabic (load via next/font) */
-  --token-font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  /* Type — IBM Plex Sans + IBM Plex Sans Arabic (loaded via next/font CSS vars) */
+  --token-font-sans: var(--font-ibm-plex-sans-arabic), var(--font-ibm-plex-sans),
+    "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
   --token-display-size: clamp(1.75rem, 4vw, 2.5rem);
   --token-display-weight: 600;
   --token-display-line: 1.2;
