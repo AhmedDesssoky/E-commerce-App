@@ -97,6 +97,19 @@
   --input: var(--token-line);
   --ring: var(--token-saffron);
   --radius: var(--token-radius-sm);
+  --sidebar: var(--token-bone);
+  --sidebar-foreground: var(--token-ink);
+  --sidebar-primary: var(--token-saffron);
+  --sidebar-primary-foreground: var(--token-bone);
+  --sidebar-accent: var(--token-paper);
+  --sidebar-accent-foreground: var(--token-ink);
+  --sidebar-border: var(--token-line);
+  --sidebar-ring: var(--token-saffron);
+  --chart-1: var(--token-saffron);
+  --chart-2: var(--token-ink);
+  --chart-3: var(--token-mute);
+  --chart-4: var(--token-line);
+  --chart-5: var(--token-success);
 }
 
 .dark,
@@ -151,6 +164,19 @@
   --color-line: var(--token-line);
   --color-sale: var(--token-sale);
   --color-success: var(--token-success);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
   --font-sans: var(--token-font-sans);
   --radius-sm: var(--token-radius-sm);
   --radius-md: var(--token-radius-md);

@@ -1,2 +1,51 @@
 @import "tailwindcss";
 @import "../../styles/token.css";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:focus-visible {
+  outline: var(--token-ring-width) solid var(--token-saffron);
+  outline-offset: var(--token-ring-offset);
+}
+
+dialog.nav-drawer {
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+dialog.nav-drawer::backdrop {
+  background: var(--token-scrim);
+}
+
+.skeleton {
+  background-color: var(--token-line);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton {
+    animation: skeleton-pulse 1.4s var(--token-ease) infinite;
+  }
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
