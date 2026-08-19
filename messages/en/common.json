@@ -1,0 +1,101 @@
+{
+  "brand": "Editorial Souk",
+  "skipToContent": "Skip to content",
+  "meta": {
+    "title": "Editorial Souk",
+    "description": "Bilingual Route storefront"
+  },
+  "nav": {
+    "primary": "Primary",
+    "home": "Home",
+    "products": "Products",
+    "brands": "Brands",
+    "categories": "Categories",
+    "cart": "Cart",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "title": "Editorial Souk",
+    "intro": "A bilingual Route storefront. Browse products, brands, and categories.",
+    "viewAll": "View",
+    "unavailable": "The catalog could not be loaded. Try again in a moment.",
+    "emptyProducts": "No products to show yet.",
+    "emptyCategories": "No categories to show yet.",
+    "emptyBrands": "No brands to show yet.",
+    "slider": "Promotional images",
+    "previous": "Previous",
+    "next": "Next",
+    "slides": "Slides",
+    "slide": "Slide {index}",
+    "slideProduce": "Fresh produce in a tote",
+    "slideWafers": "Cream-filled wafer rolls",
+    "slideCookies": "Chocolate ring cookies",
+    "loading": "Loading…"
+  },
+  "product": {
+    "outOfStock": "Out of stock",
+    "inStock": "In stock",
+    "addToCart": "Add to cart",
+    "sale": "Discount",
+    "gallery": "Product images",
+    "image": "Image {index}",
+    "imageOf": "{title}, image {index}",
+    "rating": "Rated {rating}",
+    "ratingWithCount": "Rated {rating} from {count} ratings",
+    "adding": "Adding…",
+    "addFailed": "Could not add this product. Try again.",
+    "related": "More from {category}"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page does not exist, or the product is no longer available."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "body": "The page could not be loaded. Try again in a moment.",
+    "retry": "Retry"
+  },
+  "footer": {
+    "shop": "Shop",
+    "account": "Account",
+    "tagline": "A bilingual Route storefront.",
+    "copyright": "© {year} Editorial Souk"
+  },
+  "locale": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "enCode": "EN",
+    "arCode": "AR"
+  },
+  "auth": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "password": "Password",
+    "rePassword": "Confirm password",
+    "hasAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "creating": "Creating…",
+    "signingIn": "Signing in…",
+    "invalid": "Check the form and try again.",
+    "exists": "An account with this email already exists.",
+    "credentials": "Incorrect email or password.",
+    "failed": "Could not create the account. Try again.",
+    "signInFailed": "Could not sign in. Try again.",
+    "signedInSuccess": "Signed in successfully.",
+    "signedUpSuccess": "Account created successfully.",
+    "errors": {
+      "nameMin": "Enter at least 3 characters.",
+      "email": "Enter a valid email.",
+      "passwordMin": "Enter at least 6 characters.",
+      "passwordRequired": "Enter your password.",
+      "rePassword": "Passwords do not match.",
+      "phone": "Enter an Egyptian mobile number."
+    }
+  }
+}

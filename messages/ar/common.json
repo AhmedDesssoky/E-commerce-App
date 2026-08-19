@@ -1,0 +1,101 @@
+{
+  "brand": "Editorial Souk",
+  "skipToContent": "تخطي إلى المحتوى",
+  "meta": {
+    "title": "Editorial Souk",
+    "description": "واجهة متجر Route ثنائية اللغة"
+  },
+  "nav": {
+    "primary": "التنقل الرئيسي",
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "brands": "العلامات التجارية",
+    "categories": "التصنيفات",
+    "cart": "سلة التسوق",
+    "signIn": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "signOut": "تسجيل الخروج",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة"
+  },
+  "home": {
+    "title": "Editorial Souk",
+    "intro": "واجهة متجر Route ثنائية اللغة. تصفح المنتجات والعلامات التجارية والتصنيفات.",
+    "viewAll": "عرض",
+    "unavailable": "تعذر التحميل. حاول مرة أخرى بعد قليل.",
+    "emptyProducts": "لا توجد منتجات للعرض.",
+    "emptyCategories": "لا توجد تصنيفات للعرض.",
+    "emptyBrands": "لا توجد علامات تجارية للعرض.",
+    "slider": "صور العرض",
+    "previous": "السابق",
+    "next": "التالي",
+    "slides": "الشرائح",
+    "slide": "شريحة {index}",
+    "slideProduce": "خضار طازجة في حقيبة",
+    "slideWafers": "رقاقات ويفر محشوة بالكريمة",
+    "slideCookies": "كعك حلقات بالشوكولاتة",
+    "loading": "جاري التحميل…"
+  },
+  "product": {
+    "outOfStock": "غير متوفر",
+    "inStock": "متوفر",
+    "addToCart": "إضافة إلى السلة",
+    "sale": "خصم",
+    "gallery": "صور المنتج",
+    "image": "صورة {index}",
+    "imageOf": "{title}، صورة {index}",
+    "rating": "التقييم {rating}",
+    "ratingWithCount": "التقييم {rating} من {count}",
+    "adding": "جاري الإضافة…",
+    "addFailed": "تعذر إضافة المنتج. حاول مرة أخرى.",
+    "related": "المزيد من {category}"
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "body": "هذه الصفحة غير موجودة، أو المنتج لم يعد متوفرًا."
+  },
+  "error": {
+    "title": "حدث خطأ",
+    "body": "تعذر تحميل الصفحة. حاول مرة أخرى بعد قليل.",
+    "retry": "إعادة المحاولة"
+  },
+  "footer": {
+    "shop": "المتجر",
+    "account": "الحساب",
+    "tagline": "واجهة متجر Route ثنائية اللغة.",
+    "copyright": "© {year} Editorial Souk"
+  },
+  "locale": {
+    "label": "اللغة",
+    "en": "English",
+    "ar": "العربية",
+    "enCode": "EN",
+    "arCode": "AR"
+  },
+  "auth": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "password": "كلمة المرور",
+    "rePassword": "تأكيد كلمة المرور",
+    "hasAccount": "لديك حساب؟",
+    "noAccount": "ليس لديك حساب؟",
+    "creating": "جاري الإنشاء…",
+    "signingIn": "جاري تسجيل الدخول…",
+    "invalid": "راجع النموذج وحاول مرة أخرى.",
+    "exists": "يوجد حساب بهذا البريد الإلكتروني.",
+    "credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "failed": "تعذر إنشاء الحساب. حاول مرة أخرى.",
+    "signInFailed": "تعذر تسجيل الدخول. حاول مرة أخرى.",
+    "signedInSuccess": "تم تسجيل الدخول.",
+    "signedUpSuccess": "تم إنشاء الحساب.",
+    "errors": {
+      "nameMin": "أدخل 3 أحرف على الأقل.",
+      "email": "أدخل بريداً إلكترونياً صالحاً.",
+      "passwordMin": "أدخل 6 أحرف على الأقل.",
+      "passwordRequired": "أدخل كلمة المرور.",
+      "rePassword": "كلمتا المرور غير متطابقتين.",
+      "phone": "أدخل رقم هاتف مصري."
+    }
+  }
+}
