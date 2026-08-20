@@ -16,7 +16,11 @@
     "signUp": "Sign up",
     "signOut": "Sign out",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "wishlist": "Wishlist",
+    "addresses": "Addresses",
+    "account": "Account",
+    "orders": "Orders"
   },
   "home": {
     "title": "Editorial Souk",
@@ -48,7 +52,98 @@
     "ratingWithCount": "Rated {rating} from {count} ratings",
     "adding": "Adding…",
     "addFailed": "Could not add this product. Try again.",
-    "related": "More from {category}"
+    "related": "More from {category}",
+    "addToWishlist": "Add to wishlist"
+  },
+  "catalog": {
+    "emptyCategories": "No categories to show yet.",
+    "emptyBrands": "No brands to show yet.",
+    "unavailable": "Could not be loaded. Try again in a moment."
+  },
+  "products": {
+    "empty": "No products to show yet.",
+    "unavailable": "Products could not be loaded. Try again in a moment.",
+    "page": "Page {current} of {total}",
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "brands": {
+    "productsHeading": "Products from this brand",
+    "emptyProducts": "No products for this brand yet.",
+    "unavailable": "Products could not be loaded. Try again in a moment."
+  },
+  "categories": {
+    "productsHeading": "Products in this category",
+    "emptyProducts": "No products in this category yet.",
+    "unavailable": "Products could not be loaded. Try again in a moment."
+  },
+  "cart": {
+    "empty": "Your cart is empty.",
+    "emptyAction": "Start shopping",
+    "unavailable": "Cart could not be loaded. Try again in a moment.",
+    "quantity": "Qty",
+    "price": "Price",
+    "total": "Total",
+    "remove": "Remove",
+    "clear": "Clear cart",
+    "clearing": "Clearing…",
+    "removing": "Removing…",
+    "updating": "Updating…",
+    "continueShopping": "Continue shopping",
+    "checkout": "Checkout",
+    "mutationFailed": "Something went wrong. Try again."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "summary": "Order summary",
+    "shippingAddress": "Shipping address",
+    "useSaved": "Saved address",
+    "enterNew": "New address",
+    "details": "Details",
+    "phone": "Phone",
+    "city": "City",
+    "cashOnDelivery": "Cash on delivery",
+    "onlinePayment": "Online payment",
+    "paymentMethod": "Payment method",
+    "cashHint": "Pay when the order arrives.",
+    "cardHint": "Pay securely with Stripe.",
+    "placeOrder": "Place order",
+    "payOnline": "Pay with Stripe",
+    "placing": "Placing…",
+    "redirecting": "Redirecting…",
+    "backToCart": "Back to cart",
+    "noSavedHint": "No saved addresses yet.",
+    "manageAddresses": "Addresses",
+    "emptyCart": "Your cart is empty.",
+    "noAddress": "Choose a shipping address.",
+    "invalid": "Check the form fields and try again.",
+    "failed": "Could not place the order. Try again.",
+    "unavailable": "Checkout could not be loaded. Try again in a moment.",
+    "successTitle": "Order placed",
+    "successBody": "Your order was placed successfully.",
+    "continueShopping": "Products",
+    "viewOrders": "Orders",
+    "backHome": "Home",
+    "errors": {
+      "details": "Enter at least 5 characters.",
+      "phone": "Enter a valid phone number.",
+      "city": "Enter at least 2 characters."
+    }
+  },
+  "orders": {
+    "empty": "No orders yet.",
+    "emptyAction": "Start shopping",
+    "unavailable": "Orders could not be loaded. Try again in a moment.",
+    "orderId": "Order {id}",
+    "shippingAddress": "Shipping address",
+    "paid": "Paid",
+    "unpaid": "Unpaid",
+    "delivered": "Delivered",
+    "pending": "Pending",
+    "payment": {
+      "cash": "Cash on delivery",
+      "online": "Online payment"
+    }
   },
   "notFound": {
     "title": "Page not found",
@@ -71,6 +166,11 @@
     "ar": "العربية",
     "enCode": "EN",
     "arCode": "AR"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark"
   },
   "auth": {
     "name": "Name",
@@ -96,6 +196,73 @@
       "passwordRequired": "Enter your password.",
       "rePassword": "Passwords do not match.",
       "phone": "Enter an Egyptian mobile number."
+    }
+  },
+  "wishlist": {
+    "empty": "Your wishlist is empty.",
+    "emptyAction": "Browse products",
+    "unavailable": "Wishlist could not be loaded. Try again in a moment.",
+    "add": "Add to wishlist",
+    "remove": "Remove",
+    "removing": "Removing…",
+    "mutationFailed": "Something went wrong. Try again."
+  },
+  "addresses": {
+    "saved": "Saved addresses",
+    "addNew": "Add new address",
+    "name": "Name",
+    "details": "Details",
+    "phone": "Phone",
+    "city": "City",
+    "add": "Add",
+    "adding": "Adding…",
+    "remove": "Remove",
+    "removing": "Removing…",
+    "empty": "No addresses saved yet.",
+    "unavailable": "Addresses could not be loaded. Try again in a moment.",
+    "invalid": "Check the form fields and try again.",
+    "failed": "Could not update addresses. Try again.",
+    "edit": "Edit",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "default": "Default",
+    "setDefault": "Set default",
+    "settingDefault": "Setting…",
+    "errors": {
+      "name": "Enter at least 3 characters.",
+      "details": "Enter at least 5 characters.",
+      "phone": "Enter a valid phone number.",
+      "city": "Enter at least 2 characters."
+    }
+  },
+  "account": {
+    "profile": "Profile",
+    "passwordHeading": "Password",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "save": "Save",
+    "saving": "Saving…",
+    "updated": "Profile updated successfully.",
+    "exists": "An account with this email already exists.",
+    "failed": "Could not update the profile. Try again.",
+    "unavailable": "Profile could not be loaded. Try again in a moment.",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "rePassword": "Confirm password",
+    "changePassword": "Update",
+    "changing": "Saving…",
+    "passwordUpdated": "Password updated successfully.",
+    "currentFailed": "Current password is incorrect.",
+    "passwordFailed": "Could not update the password. Try again.",
+    "errors": {
+      "nameMin": "Enter at least 3 characters.",
+      "email": "Enter a valid email.",
+      "phone": "Enter an Egyptian mobile number.",
+      "currentPassword": "Enter your current password.",
+      "passwordMin": "Enter at least 6 characters.",
+      "rePassword": "Passwords do not match."
     }
   }
 }

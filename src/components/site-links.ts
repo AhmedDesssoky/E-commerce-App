@@ -2,7 +2,11 @@ import { routing } from "@/i18n/routing";
 
 export type AppPath = Exclude<
   keyof typeof routing.pathnames,
-  "/products/[id]"
+  | "/products/[id]"
+  | "/brands/[id]"
+  | "/categories/[id]"
+  | "/checkout/success"
+  | "/allorders"
 >;
 
 export const shopLinks = [

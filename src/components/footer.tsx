@@ -1,11 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { BrandMark } from "@/components/brand-mark";
-import { SignOutButton } from "@/components/sign-out-button";
-import { authLinks, shopLinks, type AppPath } from "@/components/site-links";
-import { getRouteToken } from "@/lib/auth/session";
-
-
+import { shopLinks, type AppPath } from "@/components/site-links";
 
 function FooterLink({
   href,
@@ -27,8 +23,6 @@ function FooterLink({
 export async function Footer() {
   const t = await getTranslations("common");
   const year = new Date().getFullYear();
-  const token = await getRouteToken();
-  const isLoggedIn = token !== null;
 
   return (
     <footer className="mt-auto border-t border-line bg-bone">

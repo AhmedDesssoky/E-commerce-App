@@ -16,6 +16,8 @@ function isRouteCdnUrl(value: string) {
 const routeCdnUrlSchema = z.string().refine(isRouteCdnUrl);
 
 export const productIdSchema = z.string().regex(/^[a-f0-9]{24}$/i);
+export const brandIdSchema = productIdSchema;
+export const categoryIdSchema = productIdSchema;
 
 const catalogRefSchema = z.object({
   _id: z.string(),
@@ -65,6 +67,8 @@ const listEnvelopeSchema = z.object({
   data: z.array(z.unknown()),
 });
 
+export type CatalogMetadata = z.infer<typeof metadataSchema>;
+
 function parseCatalogList<T>(item: z.ZodType<T>, payload: unknown): T[] {
   const envelope = listEnvelopeSchema.parse(payload);
   const items: T[] = [];
@@ -77,6 +81,26 @@ function parseCatalogList<T>(item: z.ZodType<T>, payload: unknown): T[] {
   }
 
   return items;
+}
+
+function parseCatalogPage<T>(
+  item: z.ZodType<T>,
+  payload: unknown,
+): { items: T[]; metadata: CatalogMetadata } {
+  const envelope = listEnvelopeSchema.parse(payload);
+  const items: T[] = [];
+
+  for (const row of envelope.data) {
+    const parsed = item.safeParse(row);
+    if (parsed.success) {
+      items.push(parsed.data);
+    }
+  }
+
+  return {
+    items,
+    metadata: envelope.metadata ?? { currentPage: 1, numberOfPages: 1, limit: 40 },
+  };
 }
 
 export type Category = z.infer<typeof categorySchema>;
@@ -109,8 +133,19 @@ export async function listProducts(query?: {
   page?: number;
   sort?: string;
   category?: string;
+  brand?: string;
 }) {
   return parseCatalogList(productSchema, await routeCatalogGet("/products", query));
+}
+
+export async function listProductsPaginated(query?: {
+  limit?: number;
+  page?: number;
+  sort?: string;
+  category?: string;
+  brand?: string;
+}) {
+  return parseCatalogPage(productSchema, await routeCatalogGet("/products", query));
 }
 
 export async function listCategories(query?: { limit?: number; page?: number }) {
@@ -129,6 +164,22 @@ export const getProduct = cache(async (id: string) => {
   const payload = z
     .object({ data: productSchema })
     .parse(await routeCatalogGet(`/products/${safeId}`));
+  return payload.data;
+});
+
+export const getBrand = cache(async (id: string) => {
+  const safeId = brandIdSchema.parse(id);
+  const payload = z
+    .object({ data: brandSchema })
+    .parse(await routeCatalogGet(`/brands/${safeId}`));
+  return payload.data;
+});
+
+export const getCategory = cache(async (id: string) => {
+  const safeId = categoryIdSchema.parse(id);
+  const payload = z
+    .object({ data: categorySchema })
+    .parse(await routeCatalogGet(`/categories/${safeId}`));
   return payload.data;
 });
 

@@ -5,6 +5,10 @@ test("allows storefront paths and product ids", () => {
   expect(parseInternalPath("/")).toBe("/");
   expect(parseInternalPath("/products")).toBe("/products");
   expect(parseInternalPath("/cart")).toBe("/cart");
+  expect(parseInternalPath("/checkout")).toBe("/checkout");
+  expect(parseInternalPath("/orders")).toBe("/orders");
+  expect(parseInternalPath("/account")).toBe("/account");
+  expect(parseInternalPath("/addresses")).toBe("/addresses");
   expect(parseInternalPath("/products/6439d61c0049ad0b52b90051")).toBe(
     "/products/6439d61c0049ad0b52b90051",
   );

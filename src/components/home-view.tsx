@@ -63,7 +63,7 @@ async function BrandStrip() {
       {brands.map((brand) => (
         <li key={brand._id} className="flex min-h-12 min-w-24 flex-1 items-center justify-center">
           <Link
-            href="/brands"
+            href={{ pathname: "/brands/[id]", params: { id: brand._id } }}
             className="flex min-h-12 items-center justify-center"
           >
             <Image

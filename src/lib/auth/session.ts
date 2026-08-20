@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { maxAgeFromJwt } from "@/lib/auth/jwt-max-age";
 
 const ROUTE_TOKEN_COOKIE = "route_token";
+const DEFAULT_ADDRESS_COOKIE = "default_address_id";
 
 const tokenCookieOptions = {
   httpOnly: true,
@@ -34,5 +35,22 @@ export async function clearRouteToken() {
     value: "",
     ...tokenCookieOptions,
     maxAge: 0,
+  });
+}
+
+export async function getDefaultAddressId() {
+  const jar = await cookies();
+  return jar.get(DEFAULT_ADDRESS_COOKIE)?.value || null;
+}
+
+export async function setDefaultAddressId(addressId: string) {
+  const jar = await cookies();
+  jar.set({
+    name: DEFAULT_ADDRESS_COOKIE,
+    value: addressId,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
   });
 }
