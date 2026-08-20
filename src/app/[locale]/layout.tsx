@@ -7,6 +7,7 @@ import { notFound } from "@/i18n/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AuthToast } from "@/components/auth-toast";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toast";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
@@ -59,17 +60,23 @@ export default async function LocaleLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       className={`${ibmPlexSans.variable} ${ibmPlexSansArabic.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-paper text-ink font-sans">
-        <NextIntlClientProvider>
-          <Navbar />
-          <main id="main" className="flex min-w-0 flex-1 flex-col scroll-mt-16">
-            {children}
-          </main>
-          <Footer />
-          <Toaster />
-          <AuthToast />
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider>
+            <Navbar />
+            <main
+              id="main"
+              className="flex min-w-0 flex-1 flex-col scroll-mt-16"
+            >
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+            <AuthToast />
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

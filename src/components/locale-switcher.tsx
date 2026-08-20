@@ -16,6 +16,22 @@ function localeSwitchHref(
     return { pathname: "/products/[id]" as const, params: { id } };
   }
 
+  if (pathname === "/brands/[id]") {
+    const id = typeof params.id === "string" ? params.id : undefined;
+    if (!id) {
+      return "/brands" as const;
+    }
+    return { pathname: "/brands/[id]" as const, params: { id } };
+  }
+
+  if (pathname === "/categories/[id]") {
+    const id = typeof params.id === "string" ? params.id : undefined;
+    if (!id) {
+      return "/categories" as const;
+    }
+    return { pathname: "/categories/[id]" as const, params: { id } };
+  }
+
   return pathname;
 }
 

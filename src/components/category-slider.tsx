@@ -127,7 +127,7 @@ export function CategorySlider({ categories }: { categories: Category[] }) {
             className="w-[70%] shrink-0 snap-start sm:w-[45%] md:w-[31%] lg:w-[23%]"
           >
             <Link
-              href="/categories"
+              href={{ pathname: "/categories/[id]", params: { id: category._id } }}
               className="relative block overflow-hidden rounded-md border border-line bg-bone"
             >
               <div className="relative aspect-[3/4] overflow-hidden">

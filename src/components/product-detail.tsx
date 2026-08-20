@@ -1,9 +1,13 @@
 import { getFormatter, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { AddToCartForm } from "@/components/add-to-cart-form";
+import { AddToWishlistButton } from "@/components/wishlist-button";
 import { ProductCardGrid } from "@/components/product-card";
 import { ProductGallery } from "@/components/product-gallery";
 import { productDisplayPrice, type Product } from "@/lib/api/catalog";
+import { getWishlist } from "@/lib/api/wishlist";
+import { getRouteToken } from "@/lib/auth/session";
+import { RouteApiError } from "@/lib/api/route-error";
 
 function galleryImages(product: Product) {
   return [...new Set([product.imageCover, ...product.images])];
@@ -18,6 +22,19 @@ export async function ProductDetail({
 }) {
   const format = await getFormatter();
   const t = await getTranslations("common");
+  const token = await getRouteToken();
+  let inWishlist = false;
+
+  if (token) {
+    try {
+      const wishlist = await getWishlist(token);
+      inWishlist = wishlist.some((item) => item._id === product._id);
+    } catch (error) {
+      if (!(error instanceof RouteApiError)) {
+        throw error;
+      }
+    }
+  }
   const { onSale, amount } = productDisplayPrice(product);
   const outOfStock = product.quantity < 1;
   const money = (value: number) =>
@@ -95,7 +112,13 @@ export async function ProductDetail({
               {product.description}
             </p>
           ) : null}
-          <AddToCartForm productId={product._id} disabled={outOfStock} />
+          <div className="flex items-center gap-3">
+            <AddToCartForm productId={product._id} disabled={outOfStock} />
+            <AddToWishlistButton
+              productId={product._id}
+              added={inWishlist}
+            />
+          </div>
           <Link
             href="/products"
             className="text-[length:var(--token-label-size)] font-medium tracking-[var(--token-label-tracking)] leading-[var(--token-label-line)] text-mute transition-colors duration-[var(--token-duration)] ease-[var(--token-ease)] hover:text-ink"

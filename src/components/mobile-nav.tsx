@@ -4,12 +4,21 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { authLinks, shopLinks } from "@/components/site-links";
-import { CartIcon, CloseIcon, MenuIcon } from "@/components/nav-icons";
+import { CartIcon, CloseIcon, HeartIcon, MenuIcon } from "@/components/nav-icons";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { NavLink } from "@/components/nav-link";
 import { SignOutButton } from "@/components/sign-out-button";
 
-export function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
+export function MobileNav({
+  isLoggedIn,
+  cartCount = 0,
+  wishlistCount = 0,
+}: {
+  isLoggedIn: boolean;
+  cartCount?: number;
+  wishlistCount?: number;
+}) {
   const t = useTranslations("common");
   const drawerId = useId();
   const drawerRef = useRef<HTMLDialogElement>(null);
@@ -39,16 +48,37 @@ export function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
     return () => drawer.removeEventListener("close", handleClose);
   }, []);
 
+  const countLabel = (value: number) => (value > 99 ? "99+" : String(value));
+
   return (
     <>
       <div className="ms-auto flex items-center gap-1 md:hidden">
         {isLoggedIn && (
           <Link
+            href="/wishlist"
+            className="relative inline-flex size-10 items-center justify-center rounded-sm text-ink"
+            aria-label={t("nav.wishlist")}
+          >
+            <HeartIcon />
+            {wishlistCount > 0 ? (
+              <span className="absolute -end-1 -top-1 inline-flex min-w-4 items-center justify-center rounded-full bg-sale px-1 text-[10px] font-semibold leading-none text-bone tabular-nums">
+                {countLabel(wishlistCount)}
+              </span>
+            ) : null}
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
             href="/cart"
-            className="inline-flex size-10 items-center justify-center rounded-sm text-ink"
+            className="relative inline-flex size-10 items-center justify-center rounded-sm text-ink"
             aria-label={t("nav.cart")}
           >
             <CartIcon />
+            {cartCount > 0 ? (
+              <span className="absolute -end-1 -top-1 inline-flex min-w-4 items-center justify-center rounded-full bg-sale px-1 text-[10px] font-semibold leading-none text-bone tabular-nums">
+                {countLabel(cartCount)}
+              </span>
+            ) : null}
           </Link>
         )}
         <button
@@ -100,8 +130,22 @@ export function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
               <div className="h-px bg-line" />
               {isLoggedIn ? (
                 <>
+                  <NavLink href="/account" onNavigate={closeDrawer}>
+                    {t("nav.account")}
+                  </NavLink>
+                  <NavLink href="/orders" onNavigate={closeDrawer}>
+                    {t("nav.orders")}
+                  </NavLink>
+                  <NavLink href="/addresses" onNavigate={closeDrawer}>
+                    {t("nav.addresses")}
+                  </NavLink>
+                  <NavLink href="/wishlist" onNavigate={closeDrawer}>
+                    {t("nav.wishlist")}
+                    {wishlistCount > 0 ? ` (${countLabel(wishlistCount)})` : ""}
+                  </NavLink>
                   <NavLink href="/cart" onNavigate={closeDrawer}>
                     {t("nav.cart")}
+                    {cartCount > 0 ? ` (${countLabel(cartCount)})` : ""}
                   </NavLink>
                   <SignOutButton onNavigate={closeDrawer} />
                 </>
@@ -116,7 +160,10 @@ export function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
                   </NavLink>
                 ))
               )}
-              <LocaleSwitcher onNavigate={closeDrawer} />
+              <div className="flex items-center gap-3">
+                <ThemeToggle onNavigate={closeDrawer} />
+                <LocaleSwitcher onNavigate={closeDrawer} />
+              </div>
             </nav>
           </div>
         </div>

@@ -4,6 +4,12 @@ const STATIC_PATHS = new Set([
   "/categories",
   "/brands",
   "/cart",
+  "/checkout",
+  "/checkout/success",
+  "/wishlist",
+  "/addresses",
+  "/account",
+  "/orders",
 ]);
 
 const PRODUCT_PATH = /^\/products\/[a-f0-9]{24}$/i;
@@ -50,6 +56,12 @@ export type InternalHref =
   | "/categories"
   | "/brands"
   | "/cart"
+  | "/checkout"
+  | "/checkout/success"
+  | "/wishlist"
+  | "/addresses"
+  | "/account"
+  | "/orders"
   | { pathname: "/products/[id]"; params: { id: string } };
 
 export function hrefFromInternalPath(value: unknown): InternalHref {
@@ -61,6 +73,12 @@ export function hrefFromInternalPath(value: unknown): InternalHref {
     case "/categories":
     case "/brands":
     case "/cart":
+    case "/checkout":
+    case "/checkout/success":
+    case "/wishlist":
+    case "/addresses":
+    case "/account":
+    case "/orders":
       return path;
     default:
       return {
