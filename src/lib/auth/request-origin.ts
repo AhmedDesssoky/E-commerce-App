@@ -15,6 +15,24 @@ export function originFromSiteUrl(value: string | undefined) {
   }
 }
 
+/** Vercel sets host-only values (`*.vercel.app`); always use https. */
+export function originFromVercelHost(value: string | undefined) {
+  if (!value) return null;
+
+  const host = value.trim().replace(/^https?:\/\//i, "").split("/")[0];
+  if (
+    !host ||
+    host.includes(",") ||
+    host.includes("://") ||
+    host.includes("\\") ||
+    host.includes(" ")
+  ) {
+    return null;
+  }
+
+  return `https://${host}`;
+}
+
 function originFromHostHeader(host: string | null, protoHeader: string | null) {
   if (!host || host.includes(",") || host.includes("://") || host.includes("\\")) {
     return null;
@@ -37,7 +55,15 @@ export async function getRequestOrigin() {
     return configured;
   }
 
-  // Production must set SITE_URL — do not trust request Host.
+  // Platform-provided hosts are trusted (not client Host headers).
+  const vercel =
+    originFromVercelHost(process.env.VERCEL_PROJECT_PRODUCTION_URL) ??
+    originFromVercelHost(process.env.VERCEL_URL);
+  if (vercel) {
+    return vercel;
+  }
+
+  // Local / non-Vercel production without SITE_URL: refuse Host spoofing.
   if (process.env.NODE_ENV === "production") {
     return null;
   }
